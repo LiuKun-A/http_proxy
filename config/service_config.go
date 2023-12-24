@@ -19,10 +19,11 @@ func (si *serviceItem) AddItems(addr ...string) {
 }
 
 func (si *serviceItem) initAddr() {
-	si.addr = make([]string, 0)
+	tmpAddrSlice := make([]string, 10)
 	for ip := range si.Items {
-		si.addr = append(si.addr, ip)
+		tmpAddrSlice = append(si.addr, ip)
 	}
+	si.addr = tmpAddrSlice
 }
 
 func (si *serviceItem) GetAddrList() []string {
